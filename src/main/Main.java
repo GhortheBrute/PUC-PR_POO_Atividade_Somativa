@@ -1,6 +1,10 @@
-package main;
+package src.main;
 
-import modelo.Financiamento;
+import src.modelo.Apartamento;
+import src.modelo.Casa;
+import src.modelo.Financiamento;
+import src.modelo.Terreno;
+import src.util.InterfaceUsuario;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -8,41 +12,23 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-//        System.out.println("Hello World!");
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
-//
-//        InterfaceUsuario user1 = new InterfaceUsuario();
-//
-//        user1.CadastrarInvestimento();
-//
-//        user1.ExibirInvestimento();
-        List<Financiamento> listaFinanciamento = new ArrayList<>();
+//        List<Financiamento> listaFinanciamento = new ArrayList<>();
+        InterfaceUsuario user1 = new InterfaceUsuario();
+        user1.CadastrarInvestimento();
 
-        Financiamento financiamento1 = new Financiamento(200000,24,14);
-        Financiamento financiamento2 = new Financiamento(250000,24,16.8);
-        Financiamento financiamento3 = new Financiamento(350000,36,12.4);
-        Financiamento financiamento4 = new Financiamento(780000,72,17);
+        var casa2 = new Casa(200000, 24, 14);
+        var apartamento1 = new Apartamento(250000,24,16.8);
+        var apartamento2 = new Apartamento(350000, 36, 12.4);
+        var terreno1 = new Terreno(780000,72,17);
+        var terreno2 = new Terreno(1080000,86,16.4);
 
-        listaFinanciamento.add(financiamento1);
-        listaFinanciamento.add(financiamento2);
-        listaFinanciamento.add(financiamento3);
-        listaFinanciamento.add(financiamento4);
+        user1.AddInvestimento(casa2);
+        user1.AddInvestimento(apartamento1);
+        user1.AddInvestimento(apartamento2);
+        user1.AddInvestimento(terreno1);
+        user1.AddInvestimento(terreno2);
 
-        for (int i = 0; i < listaFinanciamento.size(); i++) {
-            System.out.printf("Financiamento %d - Valor do Imóvel: %s, Valor do Financiamento: %s.\n\n"
-                    ,i +1
-                    ,formatter.format(listaFinanciamento.get(i).getValorImovel())
-                    ,formatter.format(listaFinanciamento.get(i).CalcularTotalPagamento()));
-        }
-
-        double totalImoveis = 0;
-        double totalFinanciamento = 0;
-        for (Financiamento fin : listaFinanciamento){
-            totalImoveis += fin.getValorImovel();
-            totalFinanciamento += fin.CalcularTotalPagamento();
-        }
-        System.out.printf("Total de todos os imóveis: %s, totalFinanciamento de todos os financiamentos: %s."
-                ,formatter.format(totalImoveis)
-                ,formatter.format(totalFinanciamento));
+        user1.ExibirInvestimento();
     }
 }
