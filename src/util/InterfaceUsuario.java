@@ -12,6 +12,8 @@ public class InterfaceUsuario {
     private double valor;
     private int prazo;
     private double juros;
+    private double areaConstruida;
+    private double tamanhoTerreno;
     List<Financiamento> financiamentos;
     Scanner scanner = new Scanner(System.in);
     NumberFormat formatter = NumberFormat.getCurrencyInstance();
@@ -39,12 +41,12 @@ public class InterfaceUsuario {
     public void DeclararPrazo(){
         while (true) {
             try {
-                System.out.println("\nInforme o prazo total do proposta, em anos.");
+                System.out.println("\nInforme o prazo total do proposta, em meses.");
                 this.prazo = scanner.nextInt();
                 if (this.prazo <= 0){
                     System.out.println("Valor inválido. Por favor informe um valor positivo.");
                 }else {
-                    System.out.println("Prazo total de proposta: " + prazo + " anos.");
+                    System.out.println("Prazo total de proposta: " + prazo + " meses.");
                     break;
                 }
             }catch (NumberFormatException e){
@@ -70,11 +72,46 @@ public class InterfaceUsuario {
         }
     }
 
+    public void DeclararAreaConstruida(){
+        while (true) {
+            try {
+                System.out.println("\nInforme o total da área construída, em m².");
+                this.areaConstruida = scanner.nextDouble();
+                if (this.areaConstruida <= 0){
+                    System.out.println("Valor inválido. Por favor informe um valor positivo.");
+                }else {
+                    System.out.println("Total de Área Construída: " + this.areaConstruida + "m².");
+                    break;
+                }
+            }catch (NumberFormatException e){
+                System.out.println("Valor inválido. Por favor tente novamente.");
+            }
+        }
+    }
+
+    public void DeclararTamanhoTerreno(){
+        while (true) {
+            try {
+                System.out.println("\nInforme o tamanho do terreno, em m².");
+                this.tamanhoTerreno = scanner.nextDouble();
+                if (this.tamanhoTerreno <= 0){
+                    System.out.println("Valor inválido. Por favor informe um valor positivo.");
+                }else {
+                    System.out.println("Tamanho do terreno: " + this.tamanhoTerreno + "m².");
+                    break;
+                }
+            }catch (NumberFormatException e){
+                System.out.println("Valor inválido. Por favor tente novamente.");
+            }
+        }
+    }
     public void CadastrarInvestimento(){
         DeclararValorImovel();
         DeclararPrazo();
         DeclararJuros();
-        Financiamento proposta = new Casa(this.valor,this.prazo, this.juros);
+        DeclararAreaConstruida();
+        DeclararTamanhoTerreno();
+        Financiamento proposta = new Casa(this.valor,this.prazo, this.juros, this.areaConstruida, this.tamanhoTerreno);
         financiamentos.add(proposta);
     }
 
