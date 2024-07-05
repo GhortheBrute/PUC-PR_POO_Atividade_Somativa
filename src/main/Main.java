@@ -15,8 +15,11 @@ public class Main {
         NumberFormat formatter = NumberFormat.getCurrencyInstance();
 //        List<Financiamento> listaFinanciamento = new ArrayList<>();
         InterfaceUsuario user1 = new InterfaceUsuario();
+
+        // Inicia a operação de cadastro de investimento.
         user1.CadastrarInvestimento();
 
+        // Cadastros manuais para rapidez no código.
         var casa2 = new Casa(200000, 24, 14,86.4D,92D);
         var apartamento1 = new Apartamento(250000,24,16.8,1,3);
         var apartamento2 = new Apartamento(350000, 36, 12.4,2,4);
