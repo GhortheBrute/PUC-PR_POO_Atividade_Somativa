@@ -1,18 +1,24 @@
-package util;
+package src.util;
 
-import modelo.Financiamento;
+import src.modelo.Casa;
+import src.modelo.Financiamento;
 
 import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class InterfaceUsuario {
-    double valor;
-    int prazo;
-    double juros;
-    Financiamento financiamento;
-
+    private double valor;
+    private int prazo;
+    private double juros;
+    List<Financiamento> financiamentos;
     Scanner scanner = new Scanner(System.in);
     NumberFormat formatter = NumberFormat.getCurrencyInstance();
+
+    public InterfaceUsuario() {
+        this.financiamentos = new ArrayList<>();
+    }
     public void DeclararValorImovel(){
         while (true) {
             try {
@@ -33,12 +39,12 @@ public class InterfaceUsuario {
     public void DeclararPrazo(){
         while (true) {
             try {
-                System.out.println("\nInforme o prazo total do financiamento.");
+                System.out.println("\nInforme o prazo total do proposta, em anos.");
                 this.prazo = scanner.nextInt();
                 if (this.prazo <= 0){
                     System.out.println("Valor inválido. Por favor informe um valor positivo.");
                 }else {
-                    System.out.println("Prazo total de financiamento: " + prazo + " meses.");
+                    System.out.println("Prazo total de proposta: " + prazo + " anos.");
                     break;
                 }
             }catch (NumberFormatException e){
@@ -68,11 +74,41 @@ public class InterfaceUsuario {
         DeclararValorImovel();
         DeclararPrazo();
         DeclararJuros();
-        financiamento = new Financiamento(this.valor,this.prazo, this.juros);
+        Financiamento proposta = new Casa(this.valor,this.prazo, this.juros);
+        financiamentos.add(proposta);
+    }
+
+    public void AddInvestimento(Financiamento proposta){
+        financiamentos.add(proposta);
     }
 
     public void ExibirInvestimento(){
-        financiamento.ExibeDadosDoFinanciamento();
+        double totalImoveis = 0;
+        double totalFinanciamento = 0;
+        double valorImovel;
+        double valorMensalidade;
+        double valorTotal;
+        int i = 0;
+
+        for (var fin : financiamentos){
+            valorImovel = fin.getValorImovel();
+            valorMensalidade = fin.CalcularPagamentoMensal();
+            valorTotal = fin.CalcularTotalPagamento();
+
+            i++;
+            totalImoveis += valorImovel;
+            totalFinanciamento += valorTotal;
+
+            System.out.printf("Financiamento %d - %s - Valor do Imóvel: %s, Valor do Financiamento: %s, Valor da Parcela: %s\n\n"
+                    ,i
+                    ,fin.TipoDeInvestimento()
+                    ,formatter.format(valorImovel)
+                    ,formatter.format(valorTotal)
+                    ,formatter.format(valorMensalidade));
+        }
+        System.out.printf("Total de todos os imóveis: %s, totalFinanciamento de todos os financiamentos: %s."
+                ,formatter.format(totalImoveis)
+                ,formatter.format(totalFinanciamento));
     }
 
 }

@@ -1,11 +1,11 @@
-package modelo;
+package src.modelo;
 
 import java.text.NumberFormat;
 
 public class Financiamento {
-    private double valorImovel;
-    private int prazoFinanciamento;
-    private double taxaJurosAnual;
+    protected double valorImovel;
+    protected int prazoFinanciamento;
+    protected double taxaJurosAnual;
 
     public double getValorImovel() {
         return valorImovel;
@@ -22,7 +22,7 @@ public class Financiamento {
     public Financiamento(double valorImovel, int prazoFinanciamento, double taxaJurosAnual) {
         this.valorImovel = valorImovel;
         this.prazoFinanciamento = prazoFinanciamento;
-        this.taxaJurosAnual = taxaJurosAnual;
+        this.taxaJurosAnual = taxaJurosAnual / 100;
     }
 
     public double CalcularPagamentoMensal(){
@@ -33,9 +33,7 @@ public class Financiamento {
         return CalcularPagamentoMensal() * prazoFinanciamento * 12;
     }
 
-    public void ExibeDadosDoFinanciamento(){
-        NumberFormat f = NumberFormat.getCurrencyInstance();
-        System.out.println("Dados do Financiamento:");
-        System.out.printf("Valor total do financiamento: %s\nValor do Imóvel: %s", f.format(CalcularTotalPagamento()), f.format(this.valorImovel));
+    public String TipoDeInvestimento() {
+        return "Financiamento";
     }
 }
