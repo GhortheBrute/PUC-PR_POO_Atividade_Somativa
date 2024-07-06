@@ -32,7 +32,7 @@ public class Apartamento extends Financiamento {
     }
 
     @Override
-    public double CalcularPagamentoMensal() {
+    public double CalcularPagamentoMensal(){
         return (this.getValorImovel() * (Math.pow((1 + this.getTaxaJurosMensal()), this.getMeses()))) / (Math.pow((1 + (this.getTaxaJurosMensal())), (this.getMeses() - 1))) / this.getMeses();
     }
 

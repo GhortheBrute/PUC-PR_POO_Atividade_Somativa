@@ -12,7 +12,7 @@ public class Terreno extends Financiamento{
     }
 
     @Override
-    public double CalcularPagamentoMensal() {
+    public double CalcularPagamentoMensal(){
         return super.CalcularPagamentoMensal() * 1.02;
     }
 

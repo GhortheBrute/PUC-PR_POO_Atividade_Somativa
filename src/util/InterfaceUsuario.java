@@ -32,8 +32,9 @@ public class InterfaceUsuario {
                     System.out.println("Valor do Imóvel: " + formatter.format(this.valor));
                     break;
                 }
-            }catch (NumberFormatException e){
+            }catch (Exception e){
                 System.out.println("Valor inválido. Por favor tente novamente.");
+                scanner.nextLine();
             }
         }
     }
@@ -49,8 +50,9 @@ public class InterfaceUsuario {
                     System.out.println("Prazo total de proposta: " + prazo + " meses.");
                     break;
                 }
-            }catch (NumberFormatException e){
+            }catch (Exception e){
                 System.out.println("Valor inválido. Por favor tente novamente.");
+                scanner.nextLine();
             }
         }
     }
@@ -66,8 +68,9 @@ public class InterfaceUsuario {
                     System.out.printf("Taxa de juros anual: %.2f%%%n\n", this.juros);
                     break;
                 }
-            }catch (NumberFormatException e){
+            }catch (Exception e){
                 System.out.println("Valor inválido. Por favor tente novamente.");
+                scanner.nextLine();
             }
         }
     }
@@ -83,8 +86,9 @@ public class InterfaceUsuario {
                     System.out.println("Total de Área Construída: " + this.areaConstruida + "m².");
                     break;
                 }
-            }catch (NumberFormatException e){
+            }catch (Exception e){
                 System.out.println("Valor inválido. Por favor tente novamente.");
+                scanner.nextLine();
             }
         }
     }
@@ -100,8 +104,9 @@ public class InterfaceUsuario {
                     System.out.println("Tamanho do terreno: " + this.tamanhoTerreno + "m².");
                     break;
                 }
-            }catch (NumberFormatException e){
+            }catch (Exception e){
                 System.out.println("Valor inválido. Por favor tente novamente.");
+                scanner.nextLine();
             }
         }
     }

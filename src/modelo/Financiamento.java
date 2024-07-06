@@ -25,7 +25,7 @@ public abstract class Financiamento {
         this.taxaJurosAnual = taxaJurosAnual / 100;
     }
 
-    public double CalcularPagamentoMensal(){
+    public double CalcularPagamentoMensal() {
         return (getValorImovel() / (getPrazoFinanciamento() * 12)) * (1 + (getTaxaJurosAnual() / 12));
     }
 
@@ -33,7 +33,5 @@ public abstract class Financiamento {
         return CalcularPagamentoMensal() * getPrazoFinanciamento() * 12;
     }
 
-    public String TipoDeInvestimento() {
-        return "Financiamento";
-    }
+    public abstract String TipoDeInvestimento();
 }
