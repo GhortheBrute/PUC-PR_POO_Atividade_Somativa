@@ -1,11 +1,13 @@
 package src.modelo;
 
+import java.io.Serializable;
 import java.text.NumberFormat;
 
-public class Financiamento {
+public abstract class Financiamento implements Serializable {
     protected double valorImovel;
     protected int prazoFinanciamento;
     protected double taxaJurosAnual;
+    NumberFormat formatter = NumberFormat.getCurrencyInstance();
 
     public double getValorImovel() {
         return valorImovel;
@@ -25,15 +27,14 @@ public class Financiamento {
         this.taxaJurosAnual = taxaJurosAnual / 100;
     }
 
-    public double CalcularPagamentoMensal(){
-        return (valorImovel / (prazoFinanciamento * 12)) * (1 + (taxaJurosAnual / 12));
+    public double CalcularPagamentoMensal() {
+        return (getValorImovel() / (getPrazoFinanciamento() * 12)) * (1 + (getTaxaJurosAnual() / 12));
     }
 
     public double CalcularTotalPagamento(){
-        return CalcularPagamentoMensal() * prazoFinanciamento * 12;
+        return CalcularPagamentoMensal() * getPrazoFinanciamento() * 12;
     }
 
-    public String TipoDeInvestimento() {
-        return "Financiamento";
-    }
+    public abstract String TipoDeInvestimento();
+    public abstract String exportarTexto();
 }

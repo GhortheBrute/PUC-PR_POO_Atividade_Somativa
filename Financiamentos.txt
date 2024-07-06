@@ -1,0 +1,11 @@
+Financiamento - Casa - Valor do Imóvel: R$ 250.000,00, Valor do Financiamento: R$ 296.382,08, Valor da parcela: R$ 514,55. Área construída: 82.6m². Área do Terreno: 108.2m².
+
+Financiamento - Casa - Valor do Imóvel: R$ 200.000,00, Valor do Financiamento: R$ 225.373,33, Valor da parcela: R$ 782,55. Área construída: 86.4m². Área do Terreno: 92.0m².
+
+Financiamento - Apartamento - Valor do Imóvel: R$ 250.000,00, Valor do Financiamento: R$ 253.500,00, Valor da parcela: R$ 880,21. Andar: 3ª. Vagas de Garagem: 1.
+
+Financiamento - Apartamento - Valor do Imóvel: R$ 350.000,00, Valor do Financiamento: R$ 353.616,67, Valor da parcela: R$ 818,56. Andar: 4ª. Vagas de Garagem: 2.
+
+Financiamento - Terreno - Valor do Imóvel: R$ 780.000,00, Valor do Financiamento: R$ 806.871,00, Valor da parcela: R$ 933,88. Tipo de Zona: Residencial.
+
+Financiamento - Terreno - Valor do Imóvel: R$ 1.080.000,00, Valor do Financiamento: R$ 1.116.655,20, Valor da parcela: R$ 1.082,03. Tipo de Zona: Comercial.
