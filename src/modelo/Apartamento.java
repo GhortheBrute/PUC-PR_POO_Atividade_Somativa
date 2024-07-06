@@ -45,4 +45,12 @@ public class Apartamento extends Financiamento {
     public String TipoDeInvestimento() {
         return "Apartamento";
     }
+
+    @Override
+    public String exportarTexto() {
+        return "Financiamento - " + TipoDeInvestimento() + " - Valor do Imóvel: " + formatter.format(getValorImovel()) +
+                ", Valor do Financiamento: " + formatter.format(CalcularTotalPagamento()) + ", Valor da parcela: " + formatter.format(CalcularPagamentoMensal()) +
+                ". Andar: " + getAndar() + "ª. Vagas de Garagem: " + getVagasGaragem() +
+                ".";
+    }
 }

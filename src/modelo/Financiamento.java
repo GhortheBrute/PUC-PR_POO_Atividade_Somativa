@@ -1,11 +1,13 @@
 package src.modelo;
 
+import java.io.Serializable;
 import java.text.NumberFormat;
 
-public abstract class Financiamento {
+public abstract class Financiamento implements Serializable {
     protected double valorImovel;
     protected int prazoFinanciamento;
     protected double taxaJurosAnual;
+    NumberFormat formatter = NumberFormat.getCurrencyInstance();
 
     public double getValorImovel() {
         return valorImovel;
@@ -34,4 +36,5 @@ public abstract class Financiamento {
     }
 
     public abstract String TipoDeInvestimento();
+    public abstract String exportarTexto();
 }

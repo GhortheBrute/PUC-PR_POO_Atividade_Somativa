@@ -20,4 +20,11 @@ public class Terreno extends Financiamento{
     public String TipoDeInvestimento() {
         return "Terreno";
     }
+
+    @Override
+    public String exportarTexto() {
+        return "Financiamento - " + TipoDeInvestimento() + " - Valor do Imóvel: " + formatter.format(getValorImovel()) +
+                ", Valor do Financiamento: " + formatter.format(CalcularTotalPagamento()) + ", Valor da parcela: " + formatter.format(CalcularPagamentoMensal()) +
+                ". Tipo de Zona: " + getZona() + ".";
+    }
 }

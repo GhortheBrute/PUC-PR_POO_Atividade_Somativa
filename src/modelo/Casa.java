@@ -36,6 +36,12 @@ public class Casa extends Financiamento {
         return super.CalcularPagamentoMensal() + seguro;
     }
 
+    @Override
+    public String exportarTexto() {
+        return "Financiamento - " + TipoDeInvestimento() + " - Valor do Imóvel: " + formatter.format(getValorImovel()) +
+                ", Valor do Financiamento: " + formatter.format(CalcularTotalPagamento()) + ", Valor da parcela: " + formatter.format(CalcularPagamentoMensal()) +
+                ". Área construída: " + getAreaConstruida() + "m². Área do Terreno: " + getTamanhoTerreno() + "m².";
+    }
 
     public String TipoDeInvestimento() {
         return "Casa";
